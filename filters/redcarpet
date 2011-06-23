@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'redcarpet'
 
-puts RedcarpetCompat.new(STDIN.readpartial(40960000), 
+puts RedcarpetCompat.new(STDIN.readpartial(655360), 
 	:fenced_code,
 	:hard_wrap,
 	:filter_html,
