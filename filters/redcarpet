@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'redcarpet'
+
+puts RedcarpetCompat.new(STDIN.readpartial(40960000), 
+	:fenced_code,
+	:hard_wrap,
+	:filter_html,
+	:smart).to_html
+
