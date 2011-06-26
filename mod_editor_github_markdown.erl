@@ -20,3 +20,8 @@
 -module(mod_editor_github_markdown).
 -mod_title("Markdown Editor").
 -mod_description("Page editor supporting Github Flavored Markdown").
+
+-export([path/1]).
+
+path(Context) ->
+    proplists:get_value(?MODULE, z_module_manager:active_dir(Context)).

@@ -17,21 +17,23 @@
 %% limitations under the License.
 
 -module(filter_redcarpet).
--export([redcarpet/2, test/1]).
+-export([redcarpet/2]).
 
-redcarpet(Content, _Context) ->
-    undefined.
+-define(Z_MODULE, mod_editor_github_markdown).
 
-test(Content) ->
+redcarpet(Content, Context) ->
     process_flag(trap_exit, true),
-    Redcarpet = open_port({spawn, "./redcarpet"}, [binary, stream]),
+    Redcarpet = open_port({spawn, script(Context)}, [binary, stream]),
     true = port_command(Redcarpet, Content),
     formatted(Redcarpet, data(Redcarpet), []).
+
+script(Context) ->
+    mod_editor_github_markdown:path(Context) ++ "/support/redcarpet".
 
 formatted(_Redcarpet, done, Data) ->
     Data;
 formatted(Redcarpet, Data, Acc) ->
-   formatted(Redcarpet, data(Redcarpet), [Data|Acc]).
+    formatted(Redcarpet, data(Redcarpet), [Data|Acc]).
 
 data(Redcarpet) ->
     receive
