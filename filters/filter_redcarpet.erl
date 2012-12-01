@@ -1,9 +1,6 @@
 %% @author Alain O'Dea <alain.odea@gmail.com>
-%% @copyright 2011 Alain O'Dea
 %% @doc 'redcarpet' filter, format content using Github's Redcarpet
 
-%% Copyright 2010 Marc Worrell
-%%
 %% Licensed under the Apache License, Version 2.0 (the "License");
 %% you may not use this file except in compliance with the License.
 %% You may obtain a copy of the License at
